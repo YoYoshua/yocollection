@@ -14,4 +14,9 @@ public class Game {
     @Id @GeneratedValue
     private Long id;
     private @NonNull String name;
+    private String platform;
+    private String producer;
+    private int rating;
+    private int relaseYear;
+
 }

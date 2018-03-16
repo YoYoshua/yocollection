@@ -13,16 +13,4 @@ public class CoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoreApplication.class, args);
 	}
-
-    @Bean
-    ApplicationRunner init(GameRepository repository) {
-	    return args -> {
-	        Stream.of("Super Mario Oddysey", "The Legend of Zelda: Breath of the Wild").forEach(name -> {
-	            Game game = new Game();
-	            game.setName(name);
-	            repository.save(game);
-            });
-	        repository.findAll().forEach(System.out::println);
-        };
-    }
 }

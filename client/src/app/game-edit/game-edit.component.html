@@ -1,0 +1,41 @@
+<mat-card>
+  <form #gameForm="ngForm" (ngSubmit)="save(gameForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{game.name ? 'Edit' : 'Add'}} Game</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="example-container">
+      <input type="hidden" name="href" [(ngModel)]="game.href">
+      <mat-form-field>
+        <input matInput placeholder="Game Name" [(ngModel)]="game.name"
+               required name="name" #name>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Game Platform" [(ngModel)]="game.platform"
+               required name="platform" #platform>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Game Producer" [(ngModel)]="game.producer"
+               required name="producer" #producer>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Game Rating" [(ngModel)]="game.rating"
+               required name="rating" #rating>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Relase Year" [(ngModel)]="game.relaseYear"
+               required name="relaseyear" #relaseYear>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!gameForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(game.href)"
+              *ngIf="game.href" type="button">Delete</button>
+      <a mat-button routerLink="/game-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

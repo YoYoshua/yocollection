@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-
 @RestController
 public class GameController {
     private GameRepository repository;
@@ -16,8 +15,8 @@ public class GameController {
         this.repository = repository;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/games")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Game> games() {
         return repository.findAll().stream()
                 .collect(Collectors.toList());
