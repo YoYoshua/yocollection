@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @EnableWebMvc
+@CrossOrigin(origins = "http://localhost:4200")
 public class GameController {
     private GameRepository repository;
 
@@ -19,16 +20,42 @@ public class GameController {
     }
 
     @GetMapping("/games")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Game> games() {
         return repository.findAll().stream()
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/games/search/{name}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Game> matchingGames(@PathVariable String name) {
         return repository.findByName(name).stream()
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/games/sortBy={sort}&{order}")
+    public Collection<Game> sortBy(@PathVariable String sort, @PathVariable String order) {
+        Collection<Game> result;
+
+        switch(sort) {
+            case "Name":
+                result = repository.findAll().stream()
+                        .collect(Collectors.toList());
+                break;
+            case "Platform":
+                result = repository.orderByPlatformAsc().stream()
+                        .collect(Collectors.toList());
+                System.out.println("You chose sorting by platform!");
+                break;
+            case "Rating":
+                result = repository.orderByRatingAsc().stream()
+                        .collect(Collectors.toList());
+                System.out.println("You chose sorting by rating!");
+                break;
+            default:
+                result = repository.findAll().stream()
+                        .collect(Collectors.toList());
+                System.out.println("You chose wrong sorting!");
+                break;
+        }
+        return result;
     }
 }

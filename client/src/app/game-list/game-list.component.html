@@ -8,6 +8,14 @@
     <button mat-raised-button color="primary" type="submit"
             [disabled]="!searchForm.form.valid">Search</button>
     <button mat-raised-button color="primary" (click)="searchForm.reset(); showAll()">Show all</button>
+    <div class="dropdown">
+      <button mat-raised-button color="primary">Sort by: {{sortBy}}</button>
+      <div class="dropdown-content">
+        <button mat-button color="primary" (click)="changeSort(1)">Name</button>
+        <button mat-button color="primary" (click)="changeSort(2)">Platform</button>
+        <button mat-button color="primary" (click)="changeSort(3)">Rating</button>
+      </div>
+    </div>
   </form>
   <mat-card-content>
     <mat-list>
