@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GameService} from '../shared/game.service';
+import {GameService} from '../shared/game/game.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -31,6 +31,15 @@ export class GameListComponent implements OnInit {
       this.games = data;
       console.log(data);
     });
+  }
+
+  getIterator(number: number): Iterable<any> {
+    let result = new Array<number>;
+    for(let i = number - 1; i >= 0; i--) {
+      result[i] = [1];
+    }
+    console.log(result);
+    return result;
   }
 
 }

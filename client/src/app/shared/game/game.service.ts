@@ -34,7 +34,11 @@ export class GameService {
   }
 
   search(game: any): Observable<any> {
-    return this.http.get(this.GAME_API + '/search/' + game.name);
+    if(game.name) {
+      return this.http.get(this.GAME_API + '/search/' + game.name);
+    } else {
+      return this.http.get(this.GAME_API);
+    }
   }
 
 }

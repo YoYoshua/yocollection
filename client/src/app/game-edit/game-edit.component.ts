@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GameService} from '../shared/game.service';
+import {GameService} from '../shared/game/game.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
