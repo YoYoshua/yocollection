@@ -1,12 +1,13 @@
-package com.yocollection.app;
+package com.yocollection.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
-public class AppApplication {
+public class CoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppApplication.class, args);
+		SpringApplication.run(CoreApplication.class, args);
 	}
 }

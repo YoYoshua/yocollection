@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Karla");
+//@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+* {
+  font-family: 'Karla', serif;
+}
+
+h1 {
+  width: auto;
+  text-align: center;
+  font-size: 50px;
+}
+
+mat-card-header {
+  width: auto;
+  text-align: center;
+  font-size: 35px;
+}
