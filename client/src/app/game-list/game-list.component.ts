@@ -11,11 +11,13 @@ export class GameListComponent implements OnInit {
   games: Array<any>;
   searchGame: any = {};
   sortBy: String;
+  orderBy: String;
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.sortBy = 'Name';
+    this.orderBy = 'Ascending';
     this.gameService.getAll().subscribe( data => {
       this.games = data;
       console.log(data);

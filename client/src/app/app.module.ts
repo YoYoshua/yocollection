@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { GameService } from './shared/game/game.service';
@@ -57,6 +57,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    MatMenuModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
 

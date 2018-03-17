@@ -16,7 +16,7 @@ export class GameService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get(this.GAME_API);
+    return this.http.get(this.GAME_API + '/sortBy=Name&Asc');
   }
 
   get(id: string) {

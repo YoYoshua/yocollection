@@ -37,18 +37,31 @@ public class GameController {
 
         switch(sort) {
             case "Name":
-                result = repository.findAll().stream()
-                        .collect(Collectors.toList());
+                if(order.equals("Asc")) {
+                    result = repository.orderByNameAsc().stream()
+                            .collect(Collectors.toList());
+                } else {
+                    result = repository.orderByNameDesc().stream()
+                            .collect(Collectors.toList());
+                }
                 break;
             case "Platform":
-                result = repository.orderByPlatformAsc().stream()
-                        .collect(Collectors.toList());
-                System.out.println("You chose sorting by platform!");
+                if(order.equals("Asc")) {
+                    result = repository.orderByPlatformAsc().stream()
+                            .collect(Collectors.toList());
+                } else {
+                    result = repository.orderByPlatformDesc().stream()
+                            .collect(Collectors.toList());
+                }
                 break;
             case "Rating":
-                result = repository.orderByRatingAsc().stream()
-                        .collect(Collectors.toList());
-                System.out.println("You chose sorting by rating!");
+                if(order.equals("Asc")) {
+                    result = repository.orderByRatingAsc().stream()
+                            .collect(Collectors.toList());
+                } else {
+                    result = repository.orderByRatingDesc().stream()
+                            .collect(Collectors.toList());
+                }
                 break;
             default:
                 result = repository.findAll().stream()
