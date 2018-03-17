@@ -1,3 +1,36 @@
-<p>
-  game-filter works!
-</p>
+<mat-card>
+  <h2>Filter your collection</h2>
+  <mat-form-field>
+    <mat-select placeholder="Platform">
+      <mat-option *ngFor="let platform of platforms" value="{{platform.platformName}}">{{platform.platformName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-select placeholder="Minimal rating">
+      <mat-option  value="0">0</mat-option>
+      <mat-option  value="1">1</mat-option>
+      <mat-option  value="2">2</mat-option>
+      <mat-option  value="3">3</mat-option>
+      <mat-option  value="4">4</mat-option>
+      <mat-option  value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-select placeholder="Maximal rating">
+      <mat-option  value="0">0</mat-option>
+      <mat-option  value="1">1</mat-option>
+      <mat-option  value="2">2</mat-option>
+      <mat-option  value="3">3</mat-option>
+      <mat-option  value="4">4</mat-option>
+      <mat-option  value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <button mat-raised-button [routerLink]="['/game-list']" color="primary">
+    <span>Submit</span>
+  </button>
+  <a mat-button routerLink="/game-list">Cancel</a>
+</mat-card>
+

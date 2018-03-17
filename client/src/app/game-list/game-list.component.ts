@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GameService} from '../shared/game/game.service';
 import {NgForm} from '@angular/forms';
+import {PlatformService} from '../shared/platform/platform.service';
 
 @Component({
   selector: 'app-game-list',
@@ -13,7 +14,8 @@ export class GameListComponent implements OnInit {
   sortBy: String;
   orderBy: String;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService,
+              private platformService: PlatformService) { }
 
   ngOnInit() {
     this.sortBy = 'Name';
