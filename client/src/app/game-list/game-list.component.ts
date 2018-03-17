@@ -34,9 +34,9 @@ export class GameListComponent implements OnInit {
   }
 
   getIterator(number: number): Iterable<any> {
-    let result = new Array<number>;
+    let result = new Array<number>();
     for(let i = number - 1; i >= 0; i--) {
-      result[i] = [1];
+      result[i] = 1;
     }
     console.log(result);
     return result;
