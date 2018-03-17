@@ -56,11 +56,32 @@ export class GameListComponent implements OnInit {
       case 3:
         this.sortBy = 'Rating';
         break;
+      default:
+        this.sortBy = 'Name';
+        break;
     }
 
     this.gameService.sortBy(this.sortBy).subscribe(data => {
       this.games = data;
     });
+  }
+
+  changeOrder(button: number) {
+    switch (button) {
+      case 1:
+        this.orderBy = 'Ascending';
+        break;
+      case 2:
+        this.orderBy = 'Descending';
+        break;
+      default:
+        this.orderBy = 'Ascending';
+        break;
+    }
+
+    this.gameService.orderBy(this.orderBy).subscribe(data => {
+      this.games = data;
+    })
   }
 
 }

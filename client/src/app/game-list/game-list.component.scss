@@ -4,6 +4,15 @@
   margin: 10px;
   display: inline-block;
 }
+
+.game-list-item-add {
+  max-width: 300px;
+  width: 300px;
+  height: 600px;
+  padding: 25px;
+  margin: 10px;
+  display: inline-block;
+}
 #container_actions {
   text-align: right;
   padding: 25px;
@@ -48,4 +57,9 @@
 
 #game-list-menu-right-search {
   font-size: 18px;
+}
+
+.button-hover-text {
+  //display: none;
+  text-align: right;
 }

@@ -52,4 +52,15 @@ export class GameService {
     return this.http.get(this.SORT_API);
   }
 
+  orderBy(order: String): Observable<any> {
+    if(order === 'Ascending') {
+      this.sortedInOrder = 'Asc';
+    } else {
+      this.sortedInOrder = 'Desc';
+    }
+    this.SORT_API = this.API + '/games/sortBy=' + this.sortedBy
+      + '&' + this.sortedInOrder;
+    return this.http.get(this.SORT_API);
+  }
+
 }
