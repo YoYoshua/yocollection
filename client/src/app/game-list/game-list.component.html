@@ -26,6 +26,9 @@
         <button mat-raised-button color="primary" (click)="searchForm.reset(); showAll()">
           <span>Show all</span>
         </button>
+        <button mat-raised-button [routerLink]="['/game-filter']" color="primary">
+          <span>Filter</span>
+        </button>
       </form>
     </div>
   </mat-card-header>
@@ -64,7 +67,6 @@
 
 
   </mat-card-content>
-  <div class="button-hover-text">Add new game</div>
   <mat-card-actions id="container_actions">
     <button class="button-add-game" mat-fab color="primary" title="Add new game" [routerLink]="['/game-add']">+</button>
   </mat-card-actions>

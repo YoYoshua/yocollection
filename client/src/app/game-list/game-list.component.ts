@@ -81,7 +81,7 @@ export class GameListComponent implements OnInit {
 
     this.gameService.orderBy(this.orderBy).subscribe(data => {
       this.games = data;
-    })
+    });
   }
 
 }
