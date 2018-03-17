@@ -33,4 +33,8 @@ export class GameService {
     return this.http.delete(href);
   }
 
+  search(game: any): Observable<any> {
+    return this.http.get(this.GAME_API + '/search/' + game.name);
+  }
+
 }

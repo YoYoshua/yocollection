@@ -1,11 +1,13 @@
 <mat-card>
   <mat-card-header>Details</mat-card-header>
   <mat-list>
+    <mat-list-item>ID: {{game.id}}</mat-list-item>
     <mat-list-item>Name: {{game.name}}</mat-list-item>
     <mat-list-item>Platform: {{game.platform}}</mat-list-item>
     <mat-list-item>Producer: {{game.producer}}</mat-list-item>
     <mat-list-item>Rating: {{game.rating}}</mat-list-item>
   </mat-list>
+  <a mat-button [routerLink]="['/game-edit', game.id]">Edit</a>
   <a mat-button routerLink="/game-list">Cancel</a>
 </mat-card>
 

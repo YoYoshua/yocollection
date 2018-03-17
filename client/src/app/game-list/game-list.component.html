@@ -1,5 +1,14 @@
 <mat-card>
   <mat-card-header>Game List</mat-card-header>
+ <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
+    <mat-form-field>
+      <input matInput [(ngModel)]="searchGame.name"
+             required name="name" #name>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="!searchForm.form.valid">Search</button>
+    <button mat-raised-button color="primary" (click)="searchForm.reset(); showAll()">Show all</button>
+  </form>
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let game of games">
@@ -11,5 +20,5 @@
     </mat-list>
   </mat-card-content>
 
-  <button mat-fab color="primary" [routerLink]="['/game-add']">Add</button>
+  <button mat-fab color="primary" [routerLink]="['/game-add']">+</button>
 </mat-card>

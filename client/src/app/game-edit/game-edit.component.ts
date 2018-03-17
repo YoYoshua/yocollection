@@ -28,6 +28,7 @@ export class GameEditComponent implements OnInit, OnDestroy {
           if (game) {
             this.game = game;
             this.game.href = game._links.self.href;
+            this.game.id = id;
           } else {
             console.log(`Game with id '${id}' not found, returning to list`);
             this.gotoList();
