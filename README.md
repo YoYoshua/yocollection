@@ -18,7 +18,7 @@ To install and run this application you need to have these installed:
 
 To run server you have to go to the folder containing application server (in this repo, server folder) and compile project using following command:
 ```
-mvn install -DskipTests
+mvn clean package -DskipTests
 ```
 Next, you need to run compiled application using Java. Make sure that you have set proper environmental variables (see JAVA_HOME). Run the following command:
 ```
