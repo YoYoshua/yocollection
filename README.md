@@ -30,7 +30,7 @@ Server is now running. To stop server application, use Ctrl+C.
 
 To run client you have to install npm (or Yarn), go to the folder containing client application (in this repo, client folder), and run the following commands:
 ```
-ng install
+npm install
 ```
 
 ```
