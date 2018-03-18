@@ -18,8 +18,6 @@ export class GameListComponent implements OnInit {
               private platformService: PlatformService) { }
 
   ngOnInit() {
-    this.sortBy = 'Name';
-    this.orderBy = 'Ascending';
     this.gameService.getAll().subscribe( data => {
       this.games = data;
       console.log(data);

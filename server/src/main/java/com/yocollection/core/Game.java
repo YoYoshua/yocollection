@@ -29,6 +29,15 @@ public class Game {
     private String gameCoverPath;
 
     public Game() {
+
     }
 
+    public Game(String name, String platform, String producer, @Min(0) @Max(5) int rating, int relaseYear, String gameCoverPath) {
+        this.name = name;
+        this.platform = platform;
+        this.producer = producer;
+        this.rating = rating;
+        this.relaseYear = relaseYear;
+        this.gameCoverPath = gameCoverPath;
+    }
 }

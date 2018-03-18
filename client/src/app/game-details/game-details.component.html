@@ -7,7 +7,9 @@
       <mat-list-item><span><b>Producer: </b> {{game.producer}}</span></mat-list-item>
     </mat-list>
   </mat-card>
-  <img id="cover-art" src="{{game.gameCoverPath}}" alt="{{game.name}} cover" width="300" height="300" />
+  <div id="logotype">
+    <img id="cover-art" src="{{game.gameCoverPath}}" alt="{{game.name}} cover" width="200px" height="auto"/>
+  </div>
   <br/><br/>
   <mat-card id="rating-card">
     <mat-list-item><span><b>Rating:  </b></span><br/><br/>

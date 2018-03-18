@@ -2,6 +2,7 @@ package com.yocollection.core;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -31,4 +32,10 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     @Query(value = "select * from Game order by Rating desc", nativeQuery = true)
     Collection<Game> orderByRatingDesc();
+
+    @Query(value = "select * from Game where Rating >= :#{#min} and Rating <= :#{#max}", nativeQuery = true)
+    Collection<Game> filterRating(@Param("min") int min, @Param("max") int max);
+
+    @Query(value = "select g.* from Game g, Platform p where p.id = :#{#id} and g.PLATFORM = p.PLATFORM_NAME", nativeQuery = true)
+    Collection<Game> filterPlatform(@Param("id")int id);
 }

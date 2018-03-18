@@ -34,13 +34,17 @@
   </mat-card-header>
 
   <mat-card-content id="game-list-container">
-
-    <mat-card class="game-list-item" *ngFor="let game of games">
-      <mat-card-header>
-        <mat-card-title>{{game.name}}</mat-card-title>
-        <mat-card-subtitle>{{game.platform}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="{{game.gameCoverPath}}" alt="{{game.name}} cover">
+      <mat-card class="game-list-item" *ngFor="let game of games">
+        <div>
+          <mat-card-header>
+            <mat-card-title>{{game.name}}</mat-card-title>
+            <mat-card-subtitle>{{game.platform}}</mat-card-subtitle>
+          </mat-card-header>
+        </div>
+        <br/>
+      <div id="logotype">
+        <img mat-card-image id="mat-card-image" src="{{game.gameCoverPath}}" alt="{{game.name}} cover">
+      </div>
       <mat-card-content>
         <p>Rating:</p>
         <span *ngFor="let goldstar of getIterator(game.rating)">
