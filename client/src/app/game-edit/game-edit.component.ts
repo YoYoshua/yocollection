@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../shared/game/game.service';
 import {NgForm} from '@angular/forms';
+import {PlatformService} from '../shared/platform/platform.service';
 
 @Component({
   selector: 'app-game-edit',
@@ -11,12 +12,14 @@ import {NgForm} from '@angular/forms';
 })
 export class GameEditComponent implements OnInit, OnDestroy {
   game: any = {};
+  platforms: Array<any>;
 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private gameService: GameService) {
+              private gameService: GameService,
+              private platformService: PlatformService) {
 
   }
 
@@ -36,6 +39,10 @@ export class GameEditComponent implements OnInit, OnDestroy {
         });
       }
     });
+
+    this.platformService.getAll().subscribe(data => {
+      this.platforms = data;
+    });
   }
 
   ngOnDestroy() {
@@ -47,6 +54,7 @@ export class GameEditComponent implements OnInit, OnDestroy {
   }
 
   save(form: NgForm) {
+    console.log(form);
     this.gameService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));

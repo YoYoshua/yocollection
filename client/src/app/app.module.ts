@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule, MatMenuModule, MatRadioModule, MatSelectModule,
+  MatToolbarModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { GameService } from './shared/game/game.service';
@@ -14,6 +17,8 @@ import { GameEditComponent } from './game-edit/game-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameFormComponent } from './game-form/game-form.component';
+import { GameFilterComponent } from './game-filter/game-filter.component';
+import { PlatformService } from './shared/platform/platform.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/game-list', pathMatch: 'full' },
@@ -36,6 +41,11 @@ const appRoutes: Routes = [
   {
     path: 'game-details/:id',
     component: GameDetailsComponent
+  },
+
+  {
+    path: 'game-filter',
+    component: GameFilterComponent
   }
 ]
 
@@ -45,7 +55,8 @@ const appRoutes: Routes = [
     GameListComponent,
     GameEditComponent,
     GameDetailsComponent,
-    GameFormComponent
+    GameFormComponent,
+    GameFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +68,16 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [GameService],
+  providers: [GameService,
+  PlatformService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

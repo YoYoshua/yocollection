@@ -15,5 +15,4 @@ public class Platform {
     private Long id;
     private String platformName;
     private String platformLogotypePath;
-
 }

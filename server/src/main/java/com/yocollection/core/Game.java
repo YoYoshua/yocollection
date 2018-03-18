@@ -29,7 +29,15 @@ public class Game {
     private String gameCoverPath;
 
     public Game() {
-        this.gameCoverPath = "https://dl.dropbox.com/s/nuraylaidp69qz5/aveeeek.png?dl=0";
+
     }
 
+    public Game(String name, String platform, String producer, @Min(0) @Max(5) int rating, int relaseYear, String gameCoverPath) {
+        this.name = name;
+        this.platform = platform;
+        this.producer = producer;
+        this.rating = rating;
+        this.relaseYear = relaseYear;
+        this.gameCoverPath = gameCoverPath;
+    }
 }

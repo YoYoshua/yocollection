@@ -1,0 +1,39 @@
+<mat-card>
+  <h2>Filter your collection</h2>
+  <mat-form-field>
+    <mat-select placeholder="Platform">
+      <mat-option (click)="changePlatformFilter(platform.id)" *ngFor="let platform of platforms" value="{{platform.platformName}}">{{platform.platformName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-select placeholder="Minimal rating">
+      <mat-option (click)="changeRatingMinFilter(0)"  value="0">0</mat-option>
+      <mat-option (click)="changeRatingMinFilter(1)" value="1">1</mat-option>
+      <mat-option (click)="changeRatingMinFilter(2)" value="2">2</mat-option>
+      <mat-option (click)="changeRatingMinFilter(3)" value="3">3</mat-option>
+      <mat-option (click)="changeRatingMinFilter(4)" value="4">4</mat-option>
+      <mat-option (click)="changeRatingMinFilter(5)"  value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-select placeholder="Maximal rating">
+      <mat-option (click)="changeRatingMaxFilter(0)"  value="0">0</mat-option>
+      <mat-option (click)="changeRatingMaxFilter(1)" value="1">1</mat-option>
+      <mat-option (click)="changeRatingMaxFilter(2)" value="2">2</mat-option>
+      <mat-option (click)="changeRatingMaxFilter(3)" value="3">3</mat-option>
+      <mat-option (click)="changeRatingMaxFilter(4)" value="4">4</mat-option>
+      <mat-option (click)="changeRatingMaxFilter(5)"  value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <button mat-raised-button [routerLink]="['/game-list']" color="primary">
+    <span>Submit</span>
+  </button>
+  <button mat-raised-button (click)="resetAll()" [routerLink]="['/game-list']" color="primary">
+    <span>Clear all</span>
+  </button>
+  <a mat-button routerLink="/game-list">Cancel</a>
+</mat-card>
+
