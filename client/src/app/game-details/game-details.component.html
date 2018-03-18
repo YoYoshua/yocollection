@@ -1,13 +1,26 @@
 <mat-card>
   <mat-card-header>Details</mat-card-header>
-  <mat-list>
-    <mat-list-item>Name: {{game.name}}</mat-list-item>
-    <mat-list-item>Platform: {{game.platform}}</mat-list-item>
-    <mat-list-item>Producer: {{game.producer}}</mat-list-item>
-    <mat-list-item>Rating: {{game.rating}}</mat-list-item>
-  </mat-list>
-  <img src="{{game.gameCoverPath}}" alt="{{game.name}} cover" width="100" height="100" />
-  <br>
+  <mat-card id="details-card">
+    <mat-list>
+      <mat-list-item><span><b>Name: </b> {{game.name}}</span></mat-list-item>
+      <mat-list-item><span><b>Platform: </b> {{game.platform}}</span></mat-list-item>
+      <mat-list-item><span><b>Producer: </b> {{game.producer}}</span></mat-list-item>
+    </mat-list>
+  </mat-card>
+  <div id="logotype">
+    <img id="cover-art" src="{{game.gameCoverPath}}" alt="{{game.name}} cover" width="200px" height="auto"/>
+  </div>
+  <br/><br/>
+  <mat-card id="rating-card">
+    <mat-list-item><span><b>Rating:  </b></span><br/><br/>
+      <span *ngFor="let goldstar of getIterator(game.rating)">
+            <img src="https://dl.dropbox.com/s/ngxkbxyy8hmpbaw/Star_gold.png?dl=0" height="50px" width="50px"/>
+        </span><span *ngFor="let greystar of getIterator(5 - game.rating)">
+            <img src="https://dl.dropbox.com/s/pnuorfnn75xib3o/Star_grey.png?dl=0" height="50px" width="50px"/>
+        </span></mat-list-item>
+  </mat-card>
+  <img id="platform-logo" src="{{platform.platformLogotypePath}}"  width="20%" height="20%"/>
+  <br/><br />
   <a mat-button [routerLink]="['/game-edit', game.id]">Edit</a>
   <a mat-button routerLink="/game-list">Cancel</a>
 </mat-card>

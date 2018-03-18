@@ -1,30 +1,77 @@
 <mat-card>
-  <mat-card-header>Game List</mat-card-header>
- <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
-    <mat-form-field>
-      <input matInput [(ngModel)]="searchGame.name"
-             required name="name" #name>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit"
-            [disabled]="!searchForm.form.valid">Search</button>
-    <button mat-raised-button color="primary" (click)="searchForm.reset(); showAll()">Show all</button>
-  </form>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let game of games">
-        <h3 mat-line>
-          <a mat-button [routerLink]="['/game-details', game.id]">{{game.name}}</a>
-          <span style="text-align: right">{{game.platform}}</span>
-          <span *ngFor="let goldstar of getIterator(game.rating)">
-            <img src="https://dl.dropbox.com/s/ngxkbxyy8hmpbaw/Star_gold.png?dl=0" height="20px" width="20px"/>
-          </span>
-          <span *ngFor="let greystar of getIterator(5 - game.rating)">
-            <img src="https://dl.dropbox.com/s/pnuorfnn75xib3o/Star_grey.png?dl=0" height="20px" width="20px"/>
-          </span>
-        </h3>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
+  <mat-card-header id="game-list-menu">
+    <div id="game-list-menu-left">
+      <button mat-button [matMenuTriggerFor]="sortMenu">Sort by: {{sortBy}}</button>
+      <mat-menu #sortMenu="matMenu">
+        <button mat-menu-item (click)="changeSort(1)">Name</button>
+        <button mat-menu-item (click)="changeSort(2)">Platform</button>
+        <button mat-menu-item (click)="changeSort(3)">Rating</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="orderMenu">{{orderBy}}</button>
+      <mat-menu #orderMenu="matMenu">
+        <button mat-menu-item (click)="changeOrder(1)">Ascending</button>
+        <button mat-menu-item (click)="changeOrder(2)">Descending</button>
+      </mat-menu>
+    </div>
+    <div id="game-list-menu-title">Game List</div>
+    <div id="game-list-menu-right">
+      <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
+        <mat-form-field>
+          <input id="game-list-menu-right-search" matInput [(ngModel)]="searchGame.name"
+                 required name="name" #name>
 
-  <button mat-fab color="primary" [routerLink]="['/game-add']">+</button>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!searchForm.form.valid">Search</button>
+        <button mat-raised-button color="primary" (click)="searchForm.reset(); showAll()">
+          <span>Show all</span>
+        </button>
+        <button mat-raised-button [routerLink]="['/game-filter']" color="primary">
+          <span>Filter</span>
+        </button>
+      </form>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content id="game-list-container">
+      <mat-card class="game-list-item" *ngFor="let game of games">
+        <div>
+          <mat-card-header>
+            <mat-card-title>{{game.name}}</mat-card-title>
+            <mat-card-subtitle>{{game.platform}}</mat-card-subtitle>
+          </mat-card-header>
+        </div>
+        <br/>
+      <div id="logotype">
+        <img mat-card-image id="mat-card-image" src="{{game.gameCoverPath}}" alt="{{game.name}} cover">
+      </div>
+      <mat-card-content>
+        <p>Rating:</p>
+        <span *ngFor="let goldstar of getIterator(game.rating)">
+            <img src="https://dl.dropbox.com/s/ngxkbxyy8hmpbaw/Star_gold.png?dl=0" height="20px" width="20px"/>
+        </span>
+        <span *ngFor="let greystar of getIterator(5 - game.rating)">
+            <img src="https://dl.dropbox.com/s/pnuorfnn75xib3o/Star_grey.png?dl=0" height="20px" width="20px"/>
+        </span>
+        <p></p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button [routerLink]="['/game-details', game.id]">Details</button>
+        <button mat-button [routerLink]="['/game-edit', game.id]">Edit</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!--<mat-card class="game-list-item">-->
+      <!--<mat-card-header>-->
+        <!--<mat-card-title>Add new game</mat-card-title>-->
+        <!--<img mat-card-image src="https://dl.dropbox.com/s/nuraylaidp69qz5/aveeeek.png?dl=0" alt="{{game.name}} cover">-->
+      <!--</mat-card-header>-->
+    <!--</mat-card>-->
+
+
+  </mat-card-content>
+  <mat-card-actions id="container_actions">
+    <button class="button-add-game" mat-fab color="primary" title="Add new game" [routerLink]="['/game-add']">+</button>
+  </mat-card-actions>
 </mat-card>
