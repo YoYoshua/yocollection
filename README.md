@@ -6,10 +6,10 @@ A simple management application for your game collection.
 
 To install and run this application you need to have these installed:
 
-..* Maven (tested on 3.5.2 version)
-..* JDK (tested on 9.0.4 version)
-..* npm (tested on 5.7.1 version)
-..* H2 Database Engine (tested on 1.4.196 version)
+* Maven (tested on 3.5.2 version)
+* JDK (tested on 9.0.4 version)
+* npm (tested on 5.7.1 version)
+* H2 Database Engine (tested on 1.4.196 version)
 
 
 ## Installation
