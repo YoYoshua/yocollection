@@ -29,7 +29,6 @@ public class Game {
     private String gameCoverPath;
 
     public Game() {
-        this.gameCoverPath = "https://dl.dropbox.com/s/nuraylaidp69qz5/aveeeek.png?dl=0";
     }
 
 }

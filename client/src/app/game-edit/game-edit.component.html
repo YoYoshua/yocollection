@@ -1,41 +1,56 @@
-<mat-card>
-  <form #gameForm="ngForm" (ngSubmit)="save(gameForm.value)">
-    <mat-card-header>
-      <mat-card-title><h2>{{game.name ? 'Edit' : 'Add'}} Game</h2></mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="example-container">
-      <input type="hidden" name="href" [(ngModel)]="game.href">
-      <mat-form-field>
-        <input matInput placeholder="Game Name" [(ngModel)]="game.name"
-               required name="name" #name>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Game Platform" [(ngModel)]="game.platform"
-               required name="platform" #platform>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Game Producer" [(ngModel)]="game.producer"
-               required name="producer" #producer>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput type="number" placeholder="Game Rating" [(ngModel)]="game.rating"
-               required name="rating" #rating>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput type="number" placeholder="Relase Year" [(ngModel)]="game.relaseYear"
-               required name="relaseyear" #relaseYear>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
-              [disabled]="!gameForm.form.valid">Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(game.href)"
-              *ngIf="game.href" type="button">Delete</button>
-      <a mat-button routerLink="/game-list">Cancel</a>
-    </mat-card-actions>
+ <form #gameForm="ngForm" (ngSubmit)="save(gameForm.value)">
+    <mat-card id="form-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{game.name ? 'Edit' : 'Add'}} Game</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="example-container">
+        <input type="hidden" name="href" [(ngModel)]="game.href">
+        <mat-form-field>
+          <input matInput placeholder="Game Name" [(ngModel)]="game.name"
+                 required name="name" #name>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-select placeholder="Platform" [(ngModel)]="game.platform" required name="platform" #platform>
+            <mat-option *ngFor="let platform of platforms" value="{{platform.platformName}}">{{platform.platformName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Game Producer" [(ngModel)]="game.producer"
+                 required name="producer" #producer>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Relase Year" [(ngModel)]="game.relaseYear"
+                 required name="relaseYear" #relaseYear>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Link to a cover art" [(ngModel)]="game.gameCoverPath"
+                 required name="gameCoverPath" #gameCoverPath>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-select placeholder="Rating" [(ngModel)]="game.rating" required name="rating" #rating>
+            <mat-option  value="0">0</mat-option>
+            <mat-option  value="1">1</mat-option>
+            <mat-option  value="2">2</mat-option>
+            <mat-option  value="3">3</mat-option>
+            <mat-option  value="4">4</mat-option>
+            <mat-option  value="5">5</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!gameForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(game.href)"
+                *ngIf="game.href" type="button">Delete</button>
+        <a mat-button routerLink="/game-list">Cancel</a>
+      </mat-card-actions>
+    </mat-card>
   </form>
-</mat-card>
+  <mat-card id="image-card">
+    <img id="cover-art" src="{{game.gameCoverPath}}" length="300px" width="300px"/>
+  </mat-card>

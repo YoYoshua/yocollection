@@ -8,7 +8,6 @@
     </mat-list>
   </mat-card>
   <img id="cover-art" src="{{game.gameCoverPath}}" alt="{{game.name}} cover" width="300" height="300" />
-  <img id="platform-logo" src="{{platform.platformLogotypePath}}"  width="5%" height="5%"/>
   <br/><br/>
   <mat-card id="rating-card">
     <mat-list-item><span><b>Rating:  </b></span><br/><br/>
@@ -18,6 +17,7 @@
             <img src="https://dl.dropbox.com/s/pnuorfnn75xib3o/Star_grey.png?dl=0" height="50px" width="50px"/>
         </span></mat-list-item>
   </mat-card>
+  <img id="platform-logo" src="{{platform.platformLogotypePath}}"  width="20%" height="20%"/>
   <br/><br />
   <a mat-button [routerLink]="['/game-edit', game.id]">Edit</a>
   <a mat-button routerLink="/game-list">Cancel</a>

@@ -35,9 +35,9 @@ public class GameController {
     public Collection<Game> sortBy(@PathVariable String sort, @PathVariable String order) {
         Collection<Game> result;
 
-        switch(sort) {
+        switch (sort) {
             case "Name":
-                if(order.equals("Asc")) {
+                if (order.equals("Asc")) {
                     result = repository.orderByNameAsc().stream()
                             .collect(Collectors.toList());
                 } else {
@@ -46,7 +46,7 @@ public class GameController {
                 }
                 break;
             case "Platform":
-                if(order.equals("Asc")) {
+                if (order.equals("Asc")) {
                     result = repository.orderByPlatformAsc().stream()
                             .collect(Collectors.toList());
                 } else {
@@ -55,7 +55,7 @@ public class GameController {
                 }
                 break;
             case "Rating":
-                if(order.equals("Asc")) {
+                if (order.equals("Asc")) {
                     result = repository.orderByRatingAsc().stream()
                             .collect(Collectors.toList());
                 } else {

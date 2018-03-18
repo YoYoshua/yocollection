@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule,
+  MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule, MatMenuModule, MatRadioModule, MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -71,6 +71,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
 

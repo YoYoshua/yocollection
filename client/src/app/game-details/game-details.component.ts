@@ -28,10 +28,12 @@ export class GameDetailsComponent implements OnInit, OnDestroy {
             this.game = game;
             this.game.href = game._links.self.href;
             this.game.id = id;
-            this.platformService.getByName(game.platform).subscribe((platform: any) => {
-              this.platform = platform;
+            console.log(this.game.platform);
+            this.platformService.getByName(this.game.platform).subscribe((platform: any) => {
+              console.log(platform);
+              this.platform = platform[0];
+              console.log(this.platform.platformLogotypePath);
             });
-            console.log(this.platform);
           } else {
             console.log(`Game with id '${id}' not found, returning to list`);
             this.gotoList();
