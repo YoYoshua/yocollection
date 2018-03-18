@@ -43,5 +43,9 @@ To stop client application, use Ctrl+C.
 
 On start, project will create its own H2 database, however without example database you will not be able to add any games to the list. To install example database, simply move file `test2.mv.db` to the path of H2 databases (default path is `C:/Users/[user_name]`).
 
+### Application
+
+To run the application, simply run both server and client, and go to `http://localhost:4200` address in your browser.
+
 
 
