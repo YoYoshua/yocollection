@@ -12,7 +12,7 @@ export class GameListComponent implements OnInit {
   games: Array<any>;
   searchGame: any = {};
   sortBy: String;
-  orderBy: String;
+  orderBy: String = 'Ascending';
 
   constructor(private gameService: GameService,
               private platformService: PlatformService) { }
