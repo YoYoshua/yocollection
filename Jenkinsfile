@@ -10,6 +10,12 @@ pipeline {
                 sh 'cd server && java -jar target/app-0.0.1-SNAPSHOT.jar'
             }
         }
+    }
+}
+
+pipeline {
+	agent none
+    stages {
         stage('Front-end') {
             agent {
                 docker { image 'node:7-alpine' }
